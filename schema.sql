@@ -19,7 +19,7 @@ CREATE TABLE Проекты (
 
 CREATE TABLE Задачи (
                         id INT PRIMARY KEY AUTO_INCREMENT,
-                        тема VARCHAR(255) NOT NULL COLLATE 'utf8_general_ci',
+                        название VARCHAR(255) NOT NULL COLLATE 'utf8_general_ci',
                         дата_выполнения DATE DEFAULT NULL,
                         статус ENUM('выполнена', 'не выполнена') DEFAULT 'не выполнена' COLLATE 'utf8_general_ci',
                         пользователь_id INT,
