@@ -9,15 +9,11 @@ $show_complete_tasks = rand(0, 1);
 
     <nav class="main-navigation">
         <ul class="main-navigation__list">
-            <li class="main-navigation__list-item">
-                <a class="main-navigation__list-item-link" href="#">Название проекта</a>
-                <span class="main-navigation__list-item-count">0</span>
-            </li>
 
-            <?php foreach ($projects as $key => $project): ?>
-                <li class="main-navigation__list-item <?=$key;?>">
-                    <a class="main-navigation__list-item-link" href="#"><?=$project;?></a>
-                    <span class="main-navigation__list-item-count"><?= project_num($project, $tasks); ?></span>
+            <?php foreach (user_project(1) as $key => $project): ?>
+                <li class="main-navigation__list-item <?= $project["site_title"]?>">
+                    <a class="main-navigation__list-item-link" href="#"><?=$project["название"];?></a>
+                    <span class="main-navigation__list-item-count"><?php echo project_count_tasks($project["id"]); ?></span>
                 </li>
             <?php endforeach; ?>
 
@@ -39,10 +35,10 @@ $show_complete_tasks = rand(0, 1);
 
     <div class="tasks-controls">
         <nav class="tasks-switch">
-            <a href="/" class="tasks-switch__item tasks-switch__item--active">Все задачи</a>
-            <a href="/" class="tasks-switch__item">Повестка дня</a>
-            <a href="/" class="tasks-switch__item">Завтра</a>
-            <a href="/" class="tasks-switch__item">Просроченные</a>
+            <a href="/site_teach/" class="tasks-switch__item tasks-switch__item--active">Все задачи</a>
+            <a href="/site_teach/" class="tasks-switch__item">Повестка дня</a>
+            <a href="/site_teach/" class="tasks-switch__item">Завтра</a>
+            <a href="/site_teach/" class="tasks-switch__item">Просроченные</a>
         </nav>
 
         <label class="checkbox">

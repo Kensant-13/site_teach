@@ -1,14 +1,14 @@
 CREATE DATABASE site_teach;
 USE site_teach;
 
-CREATE TABLE Пользователи (
+CREATE TABLE Users (
                               id INT PRIMARY KEY AUTO_INCREMENT,
                               имя VARCHAR(100) NOT NULL COLLATE 'utf8_general_ci',
                               email VARCHAR(100) UNIQUE NOT NULL,
                               пароль VARCHAR(60) NOT NULL,
                               дата_регистрации DATETIME DEFAULT CURRENT_TIMESTAMP
 ) COLLATE='utf8_general_ci';
-CREATE TABLE Проекты (
+CREATE TABLE Projects (
                          id INT PRIMARY KEY AUTO_INCREMENT,
                          название VARCHAR(255) NOT NULL COLLATE 'utf8_general_ci',
                          site_title VARCHAR(255) NOT NULL,
@@ -17,7 +17,7 @@ CREATE TABLE Проекты (
                          FOREIGN KEY (пользователь_id) REFERENCES Пользователи(id)
 ) COLLATE='utf8_general_ci';
 
-CREATE TABLE Задачи (
+CREATE TABLE Tasks (
                         id INT PRIMARY KEY AUTO_INCREMENT,
                         название VARCHAR(255) NOT NULL COLLATE 'utf8_general_ci',
                         дата_выполнения DATE DEFAULT NULL,
